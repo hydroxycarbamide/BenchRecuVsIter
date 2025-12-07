@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<meta charset='utf-8' />
+<title>IterVsRecurGenerator-20251207-161705</title>
+
+<style type="text/css">
+	table { border-collapse: collapse; display: block; width: 100%; overflow: auto; }
+	td, th { padding: 6px 13px; border: 1px solid #ddd; text-align: right; }
+	tr { background-color: #fff; border-top: 1px solid #ccc; }
+	tr:nth-child(even) { background: #f8f8f8; }
+</style>
+</head>
+<body>
+<pre><code>
+BenchmarkDotNet v0.15.8, Linux Arch Linux
+AMD Ryzen 9 5950X 1.75GHz, 1 CPU, 32 logical and 16 physical cores
+.NET SDK 10.0.100
+  [Host]     : .NET 10.0.0 (10.0.0, 42.42.42.42424), X64 RyuJIT x86-64-v3
+  DefaultJob : .NET 10.0.0 (10.0.0, 42.42.42.42424), X64 RyuJIT x86-64-v3
+</code></pre>
+<pre><code></code></pre>
+
+<table>
+<thead><tr><th>Method       </th><th>N</th><th>Mean   </th><th>Error</th><th>StdDev</th><th>Gen0</th><th>Gen1</th><th>Gen2</th><th>Allocated</th>
+</tr>
+</thead><tbody><tr><td>GenerateIteratively</td><td>10</td><td>2.164 &mu;s</td><td>0.0082 &mu;s</td><td>0.0068 &mu;s</td><td>0.3929</td><td>-</td><td>-</td><td>6.43 KB</td>
+</tr><tr><td>SolveRecursively</td><td>10</td><td>2.162 &mu;s</td><td>0.0157 &mu;s</td><td>0.0147 &mu;s</td><td>0.1373</td><td>-</td><td>-</td><td>2.26 KB</td>
+</tr><tr><td>GenerateIteratively</td><td>100</td><td>161.927 &mu;s</td><td>1.3139 &mu;s</td><td>1.1647 &mu;s</td><td>29.2969</td><td>3.6621</td><td>-</td><td>479.77 KB</td>
+</tr><tr><td>SolveRecursively</td><td>100</td><td>152.728 &mu;s</td><td>0.5906 &mu;s</td><td>0.5524 &mu;s</td><td>4.8828</td><td>0.4883</td><td>-</td><td>80.73 KB</td>
+</tr><tr><td>GenerateIteratively</td><td>1000</td><td>17,691.191 &mu;s</td><td>132.9034 &mu;s</td><td>124.3179 &mu;s</td><td>3281.2500</td><td>1062.5000</td><td>937.5000</td><td>44476.91 KB</td>
+</tr><tr><td>SolveRecursively</td><td>1000</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td>
+</tr></tbody></table>
+</body>
+</html>
